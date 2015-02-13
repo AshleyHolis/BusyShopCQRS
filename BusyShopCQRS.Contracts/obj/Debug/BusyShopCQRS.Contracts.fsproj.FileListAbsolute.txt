@@ -1,0 +1,14 @@
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\obj\Debug\BusyShopCQRS.Contracts.fsprojResolveAssemblyReference.cache
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\BusyShopCQRS.Contracts.XML
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\BusyShopCQRS.Contracts.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\BusyShopCQRS.Contracts.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\BusyShopCQRS.Infrastructure.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\FSharp.Core.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\EventStore.ClientAPI.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\Newtonsoft.Json.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\BusyShopCQRS.Infrastructure.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\FSharp.Core.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\EventStore.ClientAPI.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\bin\Debug\Newtonsoft.Json.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\obj\Debug\BusyShopCQRS.Contracts.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Contracts\obj\Debug\BusyShopCQRS.Contracts.pdb

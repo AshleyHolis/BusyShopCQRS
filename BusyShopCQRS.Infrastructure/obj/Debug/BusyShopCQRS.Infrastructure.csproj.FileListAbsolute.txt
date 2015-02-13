@@ -1,0 +1,9 @@
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\BusyShopCQRS.Infrastructure.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\BusyShopCQRS.Infrastructure.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\EventStore.ClientAPI.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\Newtonsoft.Json.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\EventStore.ClientAPI.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\Newtonsoft.Json.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.csprojResolveAssemblyReference.cache
