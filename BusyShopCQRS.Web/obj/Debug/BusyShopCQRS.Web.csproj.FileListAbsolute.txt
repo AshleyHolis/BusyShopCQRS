@@ -1,6 +1,4 @@
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.csprojResolveAssemblyReference.cache
-C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Web.dll.config
-C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Web.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Web.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Contracts.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Domain.dll
@@ -26,5 +24,7 @@ C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Newtonsoft.Json.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\System.Net.Http.Formatting.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\System.Web.Http.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\System.Web.Http.Owin.xml
-C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Web.exe.config
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Web.exe
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.exe
