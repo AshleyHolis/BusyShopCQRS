@@ -1,19 +1,31 @@
-﻿using System;
-using BusyShopCQRS.Domain;
-using BusyShopCQRS.Infrastructure;
-using System.Web.Http;
+﻿using System.Web.Http;
 using BusyShopCQRS.Contracts.Commands;
+using BusyShopCQRS.Helpers;
+using BusyShopCQRS.Service.Documents;
+using Nest;
 
-namespace BusyShopCQRS.Web.Api.Order
+namespace BusyShopCQRS.Web.Api
 {
     [RoutePrefix("api/products")]
     public class ProductsController : BaseApiController
-    {
-        [Route("create")]
+    {        
+        public ProductsController()
+        {
+            EsClient = ElasticClientBuilder.BuildClient();
+        }
+
         [HttpPost]
         public IHttpActionResult Create(CreateProduct input)
         {
             return ExecuteCommand(input);
-        }        
+        }
+
+        [HttpGet]
+        public IHttpActionResult Get(string query = null)
+        {
+            var searchResult = EsClient.Search<Product>(sd => sd.Query(qd => qd.Match(mqd => mqd.OnField(p => p.Name).Query(query))).Size(int.MaxValue));
+
+            return Ok(searchResult.Documents);
+        }
     }
 }

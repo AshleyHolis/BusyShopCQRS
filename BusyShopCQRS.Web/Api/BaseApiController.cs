@@ -2,11 +2,14 @@
 using BusyShopCQRS.Domain;
 using BusyShopCQRS.Infrastructure;
 using System.Web.Http;
+using Nest;
 
 namespace BusyShopCQRS.Web.Api
 {
     public abstract class BaseApiController : ApiController
     {
+        protected IElasticClient EsClient;
+
         //public IHttpActionResult Post()
         //{
         //    try

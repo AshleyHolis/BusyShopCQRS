@@ -1,5 +1,7 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using BusyShopCQRS.Contracts.Commands;
+using BusyShopCQRS.Service.Documents;
 
 namespace BusyShopCQRS.Web.Api
 {
@@ -11,8 +13,6 @@ namespace BusyShopCQRS.Web.Api
         {
             return ExecuteCommand(input);
         }
-
- 
 
         // [UriTemplate("/api/basket/{BasketId}/items")]
         [HttpPost]
@@ -40,6 +40,6 @@ namespace BusyShopCQRS.Web.Api
         public IHttpActionResult Pay(MakePayment input)
         {
             return ExecuteCommand(input);
-        }
+        }        
     }
 }
