@@ -30,3 +30,17 @@ C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.exe
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\obj\Debug\BusyShopCQRS.Web.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\System.Web.Http.WebHost.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\System.Web.Http.WebHost.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Helpers.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Nest.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Neo4jClient.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Elasticsearch.Net.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Helpers.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Nest.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Nest.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Neo4jClient.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Neo4jClient.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Elasticsearch.Net.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Elasticsearch.Net.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Service.exe
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\Topshelf.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Web\bin\Debug\BusyShopCQRS.Service.pdb

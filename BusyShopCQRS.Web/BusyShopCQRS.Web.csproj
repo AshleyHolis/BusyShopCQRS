@@ -36,6 +36,10 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Elasticsearch.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Elasticsearch.Net.1.2.1\lib\Elasticsearch.Net.dll</HintPath>
+    </Reference>
     <Reference Include="EventStore.ClientAPI, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EventStore.Client.3.0.0-rc2\lib\net40\EventStore.ClientAPI.dll</HintPath>
@@ -51,6 +55,10 @@
     <Reference Include="Microsoft.Owin.Hosting, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Owin.Hosting.2.0.2\lib\net45\Microsoft.Owin.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="Nest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=96c599bbe3e70f5d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NEST.1.2.1\lib\Nest.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,6 +89,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,9 +120,17 @@
       <Project>{f6761b16-ec44-4ca5-ad1a-6df16cc8b928}</Project>
       <Name>BusyShopCQRS.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BusyShopCQRS.Helpers\BusyShopCQRS.Helpers.csproj">
+      <Project>{385445d9-7daf-4c43-9eb5-822eb0b94420}</Project>
+      <Name>BusyShopCQRS.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BusyShopCQRS.Infrastructure\BusyShopCQRS.Infrastructure.csproj">
       <Project>{a86efec3-3ba9-4fb4-909b-bef44174a558}</Project>
       <Name>BusyShopCQRS.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusyShopCQRS.Service\BusyShopCQRS.Service.csproj">
+      <Project>{7ba7d4d4-fda7-407b-b521-72dbae7a5f17}</Project>
+      <Name>BusyShopCQRS.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

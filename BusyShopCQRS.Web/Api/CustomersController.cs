@@ -1,14 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Web.Http;
+using System.Web.Services.Description;
 using BusyShopCQRS.Contracts.Commands;
 using BusyShopCQRS.Contracts.Events;
+using BusyShopCQRS.Service.Documents;
+using BusyShopCQRS.Helpers;
+using Nest;
 
 namespace BusyShopCQRS.Web.Api
 {
     [RoutePrefix("api/customers")]
     public class CustomersController : BaseApiController
     {
+        private readonly IElasticClient _esClient;
+
+        public CustomersController()
+        {
+            _esClient = ElasticClientBuilder.BuildClient();
+        }
+
         [Route("createCustomer")]
         [HttpPost]
         public IHttpActionResult Create(CreateCustomer input)
@@ -16,20 +28,14 @@ namespace BusyShopCQRS.Web.Api
             return ExecuteCommand(input);
         }
 
-        //// [UriTemplate("/api/customer/{CustomerId}/preferred")]
-        //[Route("/{Id}/markAsPreferred")]
-        //[HttpPost]
-        //public IHttpActionResult Create(MarkCustomerAsPreferred input)
-        //{
-        //    return ExecuteCommand(input);
-        //}
-
-        [Route("getAll")]
+        [Route("get")]
         [HttpGet]
-        public IHttpActionResult GetAll()
+        public IHttpActionResult Get(string query = null)
         {
-            var customers = new List<CustomerCreated> { new CustomerCreated(Guid.NewGuid(), "Test01")  };
-            return Ok(customers);
-        }     
+            var searchResult =
+                _esClient.Search<Customer>(sd => sd.Query(qd => qd.Match(mqd => mqd.OnField(p => p.Name).Query(query))).Size(int.MaxValue));
+
+            return Ok(searchResult.Documents);
+        }
     }
 }

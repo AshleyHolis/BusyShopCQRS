@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{80370847
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusyShopCQRS.Domain.Tests", "Tests\BusyShopCQRS.Domain.Tests\BusyShopCQRS.Domain.Tests.csproj", "{66BDCCFD-4003-47AC-A64E-E7D94F897F17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusyShopCQRS.Helpers", "BusyShopCQRS.Helpers\BusyShopCQRS.Helpers.csproj", "{385445D9-7DAF-4C43-9EB5-822EB0B94420}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{66BDCCFD-4003-47AC-A64E-E7D94F897F17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66BDCCFD-4003-47AC-A64E-E7D94F897F17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66BDCCFD-4003-47AC-A64E-E7D94F897F17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{385445D9-7DAF-4C43-9EB5-822EB0B94420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385445D9-7DAF-4C43-9EB5-822EB0B94420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385445D9-7DAF-4C43-9EB5-822EB0B94420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385445D9-7DAF-4C43-9EB5-822EB0B94420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
