@@ -7,11 +7,11 @@ namespace BusyShopCQRS.Service
     internal class Indexer
     {
         private readonly ElasticClient _esClient;
-        private string _index = "BusyShopCQRS";
+        private string _index = "BusyShopCQRS".ToLower();
 
         public Indexer()
         {
-            var settings = new ConnectionSettings(new Uri("http://localhost:9200"));
+            var settings = new ConnectionSettings(new Uri("http://localhost:9201"));
             settings.SetDefaultIndex(_index);
             _esClient = new ElasticClient(settings);
         }

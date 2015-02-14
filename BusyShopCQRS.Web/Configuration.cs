@@ -20,7 +20,7 @@ namespace BusyShopCQRS.Web
                     .UseConsoleLogger()
                     .SetDefaultUserCredentials(new UserCredentials("admin", "changeit"));
             var endPoint = new IPEndPoint(EventStoreIP, EventStorePort);
-            var connection = EventStoreConnection.Create(settings, endPoint, null);
+            var connection = EventStoreConnection.Create(settings, endPoint);
             connection.Connect();
             return connection;
         }

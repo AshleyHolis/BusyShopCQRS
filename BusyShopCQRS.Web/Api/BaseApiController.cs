@@ -28,14 +28,14 @@ namespace BusyShopCQRS.Web.Api
         {
             try
             {
-                var connection = BusyShopCQRS.Web.Configuration.CreateConnection();
+                var connection = Web.Configuration.CreateConnection();
                 var domainRepository = new EventStoreDomainRepository(connection);
                 var application = new DomainEntry(domainRepository);
                 application.ExecuteCommand(input);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return InternalServerError();
+                return InternalServerError(ex);
             }
 
             return Ok();

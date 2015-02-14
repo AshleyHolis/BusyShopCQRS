@@ -17,7 +17,7 @@ namespace BusyShopCQRS.Web
                 // Create HttpCient and make a request to api/values 
                 HttpClient client = new HttpClient();
 
-                var createCustomer = new CreateCustomer(Guid.NewGuid(), "Test02");
+                var createCustomer = new CreateCustomer(Guid.Parse("EFD481E6-5A8A-45D9-A9B3-25C321451558"), "Test03");
 
                 var response = client.PostAsJsonAsync(baseAddress + "api/customers/create", createCustomer).Result;
 
@@ -29,10 +29,7 @@ namespace BusyShopCQRS.Web
                 Console.WriteLine(response); 
                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
-                while (true)
-                {
-
-                }
+                Console.ReadLine();
             } 
 
             //Console.ReadLine(); 
