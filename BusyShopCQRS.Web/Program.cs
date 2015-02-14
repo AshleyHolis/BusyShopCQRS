@@ -7,9 +7,9 @@ namespace BusyShopCQRS.Web
 { 
     public class Program 
     { 
-        static void Main() 
-        { 
-            string baseAddress = "http://localhost:9000/"; 
+        static void Main()
+        {
+            const string baseAddress = "http://localhost:9000/";
 
             // Start OWIN host 
             using (WebApp.Start<Startup>(url: baseAddress)) 
@@ -19,7 +19,7 @@ namespace BusyShopCQRS.Web
 
                 var createCustomer = new CreateCustomer(Guid.NewGuid(), "Test02");
 
-                var response = client.PostAsJsonAsync(baseAddress + "api/customers/createCustomer", createCustomer.ToString()).Result;
+                var response = client.PostAsJsonAsync(baseAddress + "api/customers/create", createCustomer).Result;
 
                 Console.WriteLine(response);
                 Console.WriteLine(response.Content.ReadAsStringAsync().Result);
@@ -36,8 +36,6 @@ namespace BusyShopCQRS.Web
             } 
 
             //Console.ReadLine(); 
-
-            
-        } 
+        }
     } 
  } 
