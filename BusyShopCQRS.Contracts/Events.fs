@@ -2,10 +2,14 @@
 open BusyShopCQRS.Contracts.Types
 open BusyShopCQRS.Infrastructure
 open System
+open System.Runtime.Serialization
 
 // Customer events
-type CustomerCreated = {Id: Guid; Name: string } 
-    with interface IEvent with member this.Id with get() = this.Id
+[<DataContract>]
+type CustomerCreated = {
+     [<field: DataMember(Name="id")>] Id: Guid; 
+     [<field: DataMember(Name="name")>] Name: string 
+ } with interface IEvent with member this.Id with get() = this.Id
 
 type CustomerMarkedAsPreferred = {Id: Guid; Discount: int }
     with interface IEvent with member this.Id with get() = this.Id

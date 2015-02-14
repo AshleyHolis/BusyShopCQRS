@@ -1,4 +1,8 @@
-﻿using Owin;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Owin;
+using System.Linq;
+using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace BusyShopCQRS.Web
@@ -25,6 +29,22 @@ namespace BusyShopCQRS.Web
                 name: "API Default",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new {id = RouteParameter.Optional});
+
+            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+
+            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            //json.UseDataContractJsonSerializer = true;
+
+            //var formatters = GlobalConfiguration.Configuration.Formatters;
+            //var jsonFormatter = formatters.JsonFormatter;
+            //var settings = jsonFormatter.SerializerSettings;
+            //settings.Formatting = Formatting.Indented;
+            //settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
+            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
+            //json.UseDataContractJsonSerializer = true;
+            //json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             appBuilder.UseWebApi(config);
         }

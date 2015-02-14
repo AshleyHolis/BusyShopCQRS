@@ -10,7 +10,7 @@ namespace BusyShopCQRS.Web
     { 
         static void Main()
         {
-            const string baseAddress = "http://localhost:9000/";
+            string baseAddress = string.Format("http://{0}:9001/", Environment.MachineName);
 
             // Start OWIN host 
             using (WebApp.Start<Startup>(url: baseAddress)) 
