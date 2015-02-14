@@ -1,4 +1,3 @@
-C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\obj\Debug\BusyShopCQRS.Domain.csprojResolveAssemblyReference.cache
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\BusyShopCQRS.Domain.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\BusyShopCQRS.Domain.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\BusyShopCQRS.Contracts.dll
@@ -10,5 +9,6 @@ C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\BusyShopCQRS.Contracts.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\BusyShopCQRS.Infrastructure.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\EventStore.ClientAPI.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\obj\Debug\BusyShopCQRS.Domain.csprojResolveAssemblyReference.cache
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\obj\Debug\BusyShopCQRS.Domain.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Domain\obj\Debug\BusyShopCQRS.Domain.pdb

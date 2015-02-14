@@ -1,10 +1,7 @@
-﻿using System;
-using BusyShopCQRS.Domain;
-using BusyShopCQRS.Infrastructure;
-using System.Web.Http;
+﻿using System.Web.Http;
 using BusyShopCQRS.Contracts.Commands;
 
-namespace BusyShopCQRS.Web.Api.Order
+namespace BusyShopCQRS.Web.Api
 {
     [RoutePrefix("api/orders")]
     public class OrdersController : BaseApiController

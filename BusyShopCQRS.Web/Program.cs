@@ -1,6 +1,7 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
+using BusyShopCQRS.Contracts.Commands;
 
 namespace BusyShopCQRS.Web
 { 
@@ -14,15 +15,29 @@ namespace BusyShopCQRS.Web
             using (WebApp.Start<Startup>(url: baseAddress)) 
             { 
                 // Create HttpCient and make a request to api/values 
-                HttpClient client = new HttpClient(); 
+                HttpClient client = new HttpClient();
 
-                var response = client.GetAsync(baseAddress + "api/values").Result; 
+                var createCustomer = new CreateCustomer(Guid.NewGuid(), "Test02");
+
+                var response = client.PostAsJsonAsync(baseAddress + "api/customers/createCustomer", createCustomer.ToString()).Result;
+
+                Console.WriteLine(response);
+                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+
+                response = client.GetAsync(baseAddress + "api/customers/getAll").Result; 
 
                 Console.WriteLine(response); 
-                Console.WriteLine(response.Content.ReadAsStringAsync().Result); 
+                Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+
+                while (true)
+                {
+
+                }
             } 
 
-            Console.ReadLine(); 
+            //Console.ReadLine(); 
+
+            
         } 
     } 
  } 
