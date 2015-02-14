@@ -11,7 +11,7 @@ namespace BusyShopCQRS.Service
 
         public Indexer()
         {
-            var settings = new ConnectionSettings(new Uri("http://localhost:9201"));
+            var settings = new ConnectionSettings(new Uri("http://localhost:9200"));
             settings.SetDefaultIndex(_index);
             _esClient = new ElasticClient(settings);
         }

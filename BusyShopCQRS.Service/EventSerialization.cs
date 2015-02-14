@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using EventStore.ClientAPI;
 using Newtonsoft.Json;
@@ -30,6 +31,7 @@ namespace BusyShopCQRS.Service
         private static object DeserializeObject(byte[] data, string typeName)
         {
             var jsonString = Encoding.UTF8.GetString(data);
+
             try
             {
                 return JsonConvert.DeserializeObject(jsonString, Type.GetType(typeName));

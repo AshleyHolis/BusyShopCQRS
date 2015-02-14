@@ -6,41 +6,38 @@ namespace BusyShopCQRS.Web.Api
     [RoutePrefix("api/basket")]
     public class BasketController : BaseApiController
     {
-        [Route("create")]
         [HttpPost]
         public IHttpActionResult Create(CreateBasket input)
         {
             return ExecuteCommand(input);
         }
 
-        // [UriTemplate("/api/basket/{BasketId}/checkout")]
-        [Route("/{Id}/checkout")]
-        [HttpPost]
-        public IHttpActionResult Checkout(AddItemToBasket input)
-        {
-            return ExecuteCommand(input);
-        }
+ 
 
         // [UriTemplate("/api/basket/{BasketId}/items")]
-        [Route("/{Id}/items")]
         [HttpPost]
         public IHttpActionResult AddItemToBasket(AddItemToBasket input)
         {
             return ExecuteCommand(input);
         }
 
-        // [UriTemplate("/api/basket/{BasketId}/pay")]
-        [Route("/{Id}/pay")]
+        // [UriTemplate("/api/basket/{BasketId}/proceed")]
         [HttpPost]
-        public IHttpActionResult Pay(MakePayment input)
+        public IHttpActionResult ProceedToCheckout(ProceedToCheckout input)
         {
             return ExecuteCommand(input);
         }
 
-        // [UriTemplate("/api/basket/{BasketId}/proceed")]
-        [Route("/{Id}/proceed")]
+        // [UriTemplate("/api/basket/{BasketId}/checkout")]
         [HttpPost]
-        public IHttpActionResult ProceedToCheckout(ProceedToCheckout input)
+        public IHttpActionResult Checkout(CheckoutBasket input)
+        {
+            return ExecuteCommand(input);
+        }
+
+        // [UriTemplate("/api/basket/{BasketId}/pay")]
+        [HttpPost]
+        public IHttpActionResult Pay(MakePayment input)
         {
             return ExecuteCommand(input);
         }
