@@ -1,11 +1,10 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using BusyShopCQRS.Contracts.Commands;
 using NUnit.Framework;
 
-namespace BusyShopCQRS.Web.Tests.IntegrationTests.ProductTests
+namespace BusyShopCQRS.Web.Tests.IntegrationTests.CustomerTests
 {
     [TestFixture]
     public class CreateCustomerTests : TestBase
@@ -17,7 +16,7 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.ProductTests
             var customers = Customers.Take(20).ToList();
             var client = new HttpClient();
 
-            foreach (var customer in Customers)
+            foreach (var customer in customers)
             {
                 var createCustomer = new CreateCustomer(customer.Id, customer.Name);
                 var response = client.PostAsJsonAsync(_baseAddress + "api/customers/create", createCustomer).Result;
