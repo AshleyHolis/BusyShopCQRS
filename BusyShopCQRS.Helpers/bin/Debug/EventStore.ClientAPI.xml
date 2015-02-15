@@ -433,6 +433,11 @@
       <returns>
       </returns>
     </member>
+    <member name="M:EventStore.ClientAPI.DnsClusterSettingsBuilder.Build">
+      <summary>
+            Builds a <see cref="T:EventStore.ClientAPI.ClusterSettings" /> object from a <see cref="T:EventStore.ClientAPI.DnsClusterSettingsBuilder" />.
+            </summary>
+    </member>
     <member name="T:EventStore.ClientAPI.GossipSeedClusterSettingsBuilder">
       <summary>
             Fluent builder used to configure <see cref="T:EventStore.ClientAPI.ClusterSettings" /> for connecting to a cluster
@@ -483,6 +488,11 @@
         <see cref="T:EventStore.ClientAPI.GossipSeedClusterSettingsBuilder" /> from which to build a <see cref="T:EventStore.ClientAPI.ClusterSettings" /></param>
       <returns>
       </returns>
+    </member>
+    <member name="M:EventStore.ClientAPI.GossipSeedClusterSettingsBuilder.Build">
+      <summary>
+            Builds a <see cref="T:EventStore.ClientAPI.ClusterSettings" /> object from a <see cref="T:EventStore.ClientAPI.GossipSeedClusterSettingsBuilder" />.
+            </summary>
     </member>
     <member name="T:EventStore.ClientAPI.ConnectionSettingsBuilder">
       <summary>
@@ -674,6 +684,12 @@
             </summary>
       <param name="builder">The <see cref="T:EventStore.ClientAPI.ConnectionSettingsBuilder" /> to convert.</param>
       <returns>An immutable <see cref="T:EventStore.ClientAPI.ConnectionSettings" /> object with the values specified by the builder.</returns>
+    </member>
+    <member name="M:EventStore.ClientAPI.ConnectionSettingsBuilder.Build">
+      <summary>
+            Convert the mutable <see cref="T:EventStore.ClientAPI.ConnectionSettingsBuilder" /> object to an immutable
+            <see cref="T:EventStore.ClientAPI.ConnectionSettings" /> object.
+            </summary>
     </member>
     <member name="T:EventStore.ClientAPI.ClusterSettings">
       <summary>
@@ -916,6 +932,11 @@
             </summary>
       <param name="builder">A <see cref="T:EventStore.ClientAPI.StreamMetadataBuilder" />.</param>
       <returns>A <see cref="T:EventStore.ClientAPI.StreamMetadata" />.</returns>
+    </member>
+    <member name="M:EventStore.ClientAPI.StreamMetadataBuilder.Build">
+      <summary>
+            Builds a <see cref="T:EventStore.ClientAPI.StreamMetadata" /> from a <see cref="T:EventStore.ClientAPI.StreamMetadataBuilder" />.
+            </summary>
     </member>
     <member name="M:EventStore.ClientAPI.StreamMetadataBuilder.SetMaxCount(System.Int32)">
       <summary>
@@ -1594,6 +1615,16 @@
       <param name="settings">The <see cref="T:EventStore.ClientAPI.SystemSettings" /> to apply.</param>
       <param name="userCredentials">User credentials to use for the operation.</param>
     </member>
+    <member name="P:EventStore.ClientAPI.IEventStoreConnection.Settings">
+      <summary>
+            Returns the <see cref="T:EventStore.ClientAPI.ConnectionSettings" /> use to create this connection
+            </summary>
+    </member>
+    <member name="P:EventStore.ClientAPI.IEventStoreConnection.ClusterSettings">
+      <summary>
+            Returns the <see cref="P:EventStore.ClientAPI.IEventStoreConnection.ClusterSettings" /> use to create this connection
+            </summary>
+    </member>
     <member name="P:EventStore.ClientAPI.IEventStoreConnection.ConnectionName">
       <summary>
             Gets the name of this connection. A connection name can be used for disambiguation
@@ -1670,12 +1701,24 @@
             it is generally recommended to use it in this way.
             </remarks>
     </member>
-    <member name="M:EventStore.ClientAPI.EventStoreNodeConnection.#ctor(EventStore.ClientAPI.ConnectionSettings,EventStore.ClientAPI.Core.IEndPointDiscoverer,System.String)">
+    <member name="M:EventStore.ClientAPI.EventStoreNodeConnection.#ctor(EventStore.ClientAPI.ConnectionSettings,EventStore.ClientAPI.ClusterSettings,EventStore.ClientAPI.Core.IEndPointDiscoverer,System.String)">
       <summary>
             Constructs a new instance of a <see cref="T:EventStore.ClientAPI.EventStoreConnection" /></summary>
       <param name="settings">The <see cref="T:EventStore.ClientAPI.ConnectionSettings" /> containing the settings for this connection.</param>
+      <param name="clusterSettings">
+      </param>
       <param name="endPointDiscoverer">Discoverer of destination node end point.</param>
       <param name="connectionName">Optional name of connection (will be generated automatically, if not provided)</param>
+    </member>
+    <member name="P:EventStore.ClientAPI.EventStoreNodeConnection.Settings">
+      <summary>
+            Returns the <see cref="T:EventStore.ClientAPI.ConnectionSettings" /> use to create this connection
+            </summary>
+    </member>
+    <member name="P:EventStore.ClientAPI.EventStoreNodeConnection.ClusterSettings">
+      <summary>
+            Returns the <see cref="P:EventStore.ClientAPI.EventStoreNodeConnection.ClusterSettings" /> use to create this connection
+            </summary>
     </member>
     <member name="T:EventStore.ClientAPI.Exceptions.ClusterException">
       <summary>

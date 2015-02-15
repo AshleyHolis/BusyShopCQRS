@@ -18,17 +18,17 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
             const int numberOfBasketsToOrder = int.MaxValue;
             const int maxNumberOfProductsToOrder = 10;
 
-            for (int i = 0; i < numberOfBasketsToOrder; i++)
-            {
-                Debug.WriteLine("Order: {0}", i);
-                CreateRandomBasket(maxNumberOfProductsToOrder);
-            }
-
-            //Parallel.For(0, numberOfBasketsToOrder, i =>
+            //for (int i = 0; i < numberOfBasketsToOrder; i++)
             //{
             //    Debug.WriteLine("Order: {0}", i);
             //    CreateRandomBasket(maxNumberOfProductsToOrder);
-            //});
+            //}
+
+            Parallel.For(0, numberOfBasketsToOrder, i =>
+            {
+                Debug.WriteLine("Order: {0}", i);
+                CreateRandomBasket(maxNumberOfProductsToOrder);
+            });
         }
 
         private void CreateRandomBasket(int maxNumberOfProductsToOrder)
