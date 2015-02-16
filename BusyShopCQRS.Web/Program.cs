@@ -10,11 +10,11 @@ namespace BusyShopCQRS.Web
     { 
         static void Main()
         {
-            //string baseAddress = string.Format("http://{0}:9000/", "localhost");
-            string baseAddress = string.Format("http://{0}:9000/", Environment.MachineName);
+            //var baseAddress = string.Format("http://{0}:9000/", "localhost");
+            var baseAddress = string.Format("http://{0}:9000/", Environment.MachineName);
 
             // Start OWIN host 
-            using (WebApp.Start<Startup>(url: baseAddress))
+            using (WebApp.Start<Startup>(baseAddress))
             {
                 Console.WriteLine("Started.");
                 //CreateTestOrder(baseAddress);
@@ -44,17 +44,17 @@ namespace BusyShopCQRS.Web
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var addItemToBasket = new AddItemToBasket(createBasket.Id, createProduct.Id, new Random().Next(100));
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/AddItemToBasket", addItemToBasket).Result;
+            response = client.PostAsJsonAsync(baseAddress + "api/basket/addItemToBasket", addItemToBasket).Result;
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var proceedToCheckout = new ProceedToCheckout(createBasket.Id);
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/ProceedToCheckout", proceedToCheckout).Result;
+            response = client.PostAsJsonAsync(baseAddress + "api/basket/proceedToCheckout", proceedToCheckout).Result;
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var checkoutBasket = new CheckoutBasket(createBasket.Id, new Address("MyStreet"));
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/Checkout", checkoutBasket).Result;
+            response = client.PostAsJsonAsync(baseAddress + "api/basket/checkout", checkoutBasket).Result;
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 

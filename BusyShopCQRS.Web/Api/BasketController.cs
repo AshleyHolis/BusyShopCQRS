@@ -5,7 +5,6 @@ using BusyShopCQRS.Service.Documents;
 
 namespace BusyShopCQRS.Web.Api
 {
-    [RoutePrefix("api/basket")]
     public class BasketController : BaseApiController
     {
         [HttpPost]

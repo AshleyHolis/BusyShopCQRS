@@ -1,4 +1,5 @@
 using System;
+using BusyShopCQRS.Helpers;
 using BusyShopCQRS.Service.Documents;
 using Nest;
 
@@ -7,12 +8,11 @@ namespace BusyShopCQRS.Service
     internal class Indexer
     {
         private readonly ElasticClient _esClient;
-        private string _index = "BusyShopCQRS".ToLower();
 
         public Indexer()
         {
             var settings = new ConnectionSettings(new Uri("http://localhost:9200"));
-            settings.SetDefaultIndex(_index);
+            settings.SetDefaultIndex(ElasticClientBuilder.IndexName);
             _esClient = new ElasticClient(settings);
         }
 
@@ -23,12 +23,12 @@ namespace BusyShopCQRS.Service
 
         public void Index<TDocument>(TDocument document) where TDocument : class
         {
-            _esClient.Index(document, y => y.Index(_index));
+            _esClient.Index(document, y => y.Index(ElasticClientBuilder.IndexName));
         }
 
         public void Init()
         {
-            _esClient.CreateIndex(_index, y => y
+            _esClient.CreateIndex(ElasticClientBuilder.IndexName, y => y
                 .AddMapping<Basket>(m => m.MapFromAttributes())
                 .AddMapping<Customer>(m => m.MapFromAttributes())
                 .AddMapping<Product>(m => m.MapFromAttributes()));

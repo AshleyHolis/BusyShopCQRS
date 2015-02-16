@@ -10,6 +10,17 @@ namespace BusyShopCQRS.Web.Api
     {
         protected IElasticClient EsClient;
 
+        private DomainEntry _domainEntry;
+
+        private DomainEntry DomainEntry
+        {
+            get
+            {
+                _domainEntry = _domainEntry ?? ApplicationConfiguration.CreateDomainEntry();
+                return _domainEntry;
+            }
+        }
+
         //public IHttpActionResult Post()
         //{
         //    try
@@ -31,10 +42,10 @@ namespace BusyShopCQRS.Web.Api
         {
             try
             {
-                var connection = Web.Configuration.CreateConnection();
-                var domainRepository = new EventStoreDomainRepository(connection);
-                var application = new DomainEntry(domainRepository);
-                application.ExecuteCommand(input);
+                //var connection = Web.Configuration.CreateConnection();
+                //var domainRepository = new EventStoreDomainRepository(connection);
+
+                DomainEntry.ExecuteCommand(input);
             }
             catch (Exception ex)
             {

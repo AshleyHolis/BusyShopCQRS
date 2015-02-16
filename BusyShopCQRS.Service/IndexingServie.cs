@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using BusyShopCQRS.Contracts.Events;
+using BusyShopCQRS.Helpers;
 using BusyShopCQRS.Service.Documents;
 using EventStore.ClientAPI;
 using Neo4jClient;
@@ -49,7 +50,6 @@ namespace BusyShopCQRS.Service
 
         private void ConnectToEventstore()
         {
-
             _latestPosition = Position.Start;
             _connection = EventStoreConnectionWrapper.Connect();
             _connection.Connected +=

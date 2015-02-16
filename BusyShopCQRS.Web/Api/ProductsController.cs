@@ -6,7 +6,6 @@ using Nest;
 
 namespace BusyShopCQRS.Web.Api
 {
-    [RoutePrefix("api/products")]
     public class ProductsController : BaseApiController
     {        
         public ProductsController()
@@ -14,12 +13,14 @@ namespace BusyShopCQRS.Web.Api
             EsClient = ElasticClientBuilder.BuildClient();
         }
 
+        [Route]
         [HttpPost]
         public IHttpActionResult Create(CreateProduct input)
         {
             return ExecuteCommand(input);
         }
 
+        [Route]
         [HttpGet]
         public IHttpActionResult Get(string query = null)
         {

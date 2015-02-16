@@ -81,7 +81,6 @@
     <Compile Include="Documents\Customer.cs" />
     <Compile Include="Documents\Product.cs" />
     <Compile Include="EventSerialization.cs" />
-    <Compile Include="EventStoreConnectionWrapper.cs" />
     <Compile Include="Indexer.cs" />
     <Compile Include="IndexingServie.cs" />
     <Compile Include="Program.cs" />
@@ -96,6 +95,10 @@
     <ProjectReference Include="..\BusyShopCQRS.Contracts\BusyShopCQRS.Contracts.fsproj">
       <Project>{ffc37a71-868b-496f-b52c-2a0cded19c08}</Project>
       <Name>BusyShopCQRS.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusyShopCQRS.Helpers\BusyShopCQRS.Helpers.csproj">
+      <Project>{385445D9-7DAF-4C43-9EB5-822EB0B94420}</Project>
+      <Name>BusyShopCQRS.Helpers</Name>
     </ProjectReference>
     <ProjectReference Include="..\BusyShopCQRS.Infrastructure\BusyShopCQRS.Infrastructure.csproj">
       <Project>{a86efec3-3ba9-4fb4-909b-bef44174a558}</Project>

@@ -11,7 +11,6 @@ using Nest;
 
 namespace BusyShopCQRS.Web.Api
 {
-    [RoutePrefix("api/customers")]
     public class CustomersController : BaseApiController
     {
         public CustomersController()

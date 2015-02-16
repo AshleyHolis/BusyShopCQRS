@@ -14,8 +14,8 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
     {
         [Test]
         public void Create100RandomBasketsInParallel()
-        {            
-            const int numberOfBasketsToOrder = int.MaxValue;
+        {
+            const int numberOfBasketsToOrder = 10;
             const int maxNumberOfProductsToOrder = 10;
 
             //for (int i = 0; i < numberOfBasketsToOrder; i++)
@@ -24,7 +24,7 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
             //    CreateRandomBasket(maxNumberOfProductsToOrder);
             //}
 
-            Parallel.For(0, numberOfBasketsToOrder, i =>
+            Parallel.For(0, numberOfBasketsToOrder, new ParallelOptions {MaxDegreeOfParallelism = 20}, i =>
             {
                 Debug.WriteLine("Order: {0}", i);
                 CreateRandomBasket(maxNumberOfProductsToOrder);

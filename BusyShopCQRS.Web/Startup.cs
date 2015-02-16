@@ -9,44 +9,32 @@ namespace BusyShopCQRS.Web
 {
     public class Startup
     {
-        // This code configures Web API. The Startup class is specified as a type
-        // parameter in the WebApp.Start method.
         public void Configuration(IAppBuilder appBuilder)
         {
-
-            // Configure Web API for self-host. 
-            HttpConfiguration config = new HttpConfiguration();
+            var configuration = new HttpConfiguration();
 
             GlobalConfiguration.Configuration.MapHttpAttributeRoutes();
-
-            //config.Routes.MapHttpRoute(
-            //    name: "DefaultApi",
-            //    routeTemplate: "api/{controller}/{id}",
-            //    defaults: new {id = RouteParameter.Optional}
-            //    );
-
-            config.Routes.MapHttpRoute(
-                name: "API Default",
+            configuration.Routes.MapHttpRoute(
+                name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new {id = RouteParameter.Optional});
+                defaults: new { id = RouteParameter.Optional }
+                );
 
-            var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
-            config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
+            var appXmlType = configuration.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
+            configuration.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 
-            //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            //json.UseDataContractJsonSerializer = true;
-
-            //var formatters = GlobalConfiguration.Configuration.Formatters;
-            //var jsonFormatter = formatters.JsonFormatter;
-            //var settings = jsonFormatter.SerializerSettings;
-            //settings.Formatting = Formatting.Indented;
-            //settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            //configuration.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings()
+            //{
+            //    //ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
+            //    //ContractResolver = new DefaultContractResolver()
+            //};
 
             //var json = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
             //json.UseDataContractJsonSerializer = true;
-            //json.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-            appBuilder.UseWebApi(config);
+            //LinkyConfiguration.Configure(configuration);
+
+            appBuilder.UseWebApi(configuration);
         }
     }
 }
