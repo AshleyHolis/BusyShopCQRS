@@ -8,11 +8,6 @@ namespace BusyShopCQRS.Web.Api
 {
     public class ProductsController : BaseApiController
     {        
-        public ProductsController()
-        {
-            EsClient = ElasticClientBuilder.BuildClient();
-        }
-
         [Route]
         [HttpPost]
         public IHttpActionResult Create(CreateProduct input)

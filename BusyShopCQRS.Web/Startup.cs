@@ -23,6 +23,8 @@ namespace BusyShopCQRS.Web
             var appXmlType = configuration.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             configuration.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 
+            configuration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             //configuration.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings()
             //{
             //    //ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
