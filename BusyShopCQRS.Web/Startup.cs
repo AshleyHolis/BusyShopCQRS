@@ -4,6 +4,9 @@ using Owin;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using Microsoft.Owin;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
 
 namespace BusyShopCQRS.Web
 {
@@ -37,6 +40,18 @@ namespace BusyShopCQRS.Web
             //LinkyConfiguration.Configure(configuration);
 
             appBuilder.UseWebApi(configuration);
+
+            appBuilder.UseDefaultFiles(new DefaultFilesOptions()
+            {
+                DefaultFileNames = new[] { "index.html" }
+            });
+            appBuilder.UseFileServer(new FileServerOptions()
+            {
+                //FileSystem = new PhysicalFileSystem(@".\content"),
+                FileSystem = new PhysicalFileSystem("../../content"),
+                RequestPath = PathString.Empty,
+                EnableDefaultFiles = true
+            });
         }
     }
 }

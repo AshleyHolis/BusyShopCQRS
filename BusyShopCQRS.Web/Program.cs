@@ -1,8 +1,12 @@
 ﻿using Microsoft.Owin.Hosting;
 using System;
 using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Text;
+using System.Threading.Tasks;
 using BusyShopCQRS.Contracts.Commands;
 using BusyShopCQRS.Contracts.Types;
+using Newtonsoft.Json;
 
 namespace BusyShopCQRS.Web
 { 
@@ -17,7 +21,7 @@ namespace BusyShopCQRS.Web
             using (WebApp.Start<Startup>(baseAddress))
             {
                 Console.WriteLine("Started.");
-                //CreateTestOrder(baseAddress);
+                CreateTestOrder(baseAddress);
 
                 Console.ReadLine();
             }
@@ -29,40 +33,49 @@ namespace BusyShopCQRS.Web
             HttpClient client = new HttpClient();
 
             var createProduct = new CreateProduct(Guid.NewGuid(), "TestProduct" + new Random().Next(), new Random().Next(100));
-            var response = client.PostAsJsonAsync(baseAddress + "api/products/create", createProduct).Result;
+            var response = UploadJsonObjectAsync(new Uri(baseAddress + "api/products/create"), createProduct);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var createCustomer = new CreateCustomer(Guid.NewGuid(), "Test" + new Random().Next());
-            response = client.PostAsJsonAsync(baseAddress + "api/customers/create", createCustomer).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/customers/create"), createCustomer);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var createBasket = new CreateBasket(Guid.NewGuid(), createCustomer.Id);
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/create", createBasket).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/create"), createBasket);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var addItemToBasket = new AddItemToBasket(createBasket.Id, createProduct.Id, new Random().Next(100));
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/addItemToBasket", addItemToBasket).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/addItemToBasket"), addItemToBasket);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var proceedToCheckout = new ProceedToCheckout(createBasket.Id);
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/proceedToCheckout", proceedToCheckout).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/proceedToCheckout"), proceedToCheckout);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var checkoutBasket = new CheckoutBasket(createBasket.Id, new Address("MyStreet"));
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/checkout", checkoutBasket).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/checkout"), checkoutBasket);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
             var paymentAmount = createProduct.Price*addItemToBasket.Quantity;
             var makePayment = new MakePayment(createBasket.Id, paymentAmount);
-            response = client.PostAsJsonAsync(baseAddress + "api/basket/pay", makePayment).Result;
+            response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/pay"), makePayment);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
+        }
+
+        static HttpResponseMessage UploadJsonObjectAsync<T>(Uri uri, T data)
+        {
+            using (var client = new HttpClient())
+            {
+                var content = JsonConvert.SerializeObject(data);
+                return client.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).Result;
+            }
         }
     } 
  }

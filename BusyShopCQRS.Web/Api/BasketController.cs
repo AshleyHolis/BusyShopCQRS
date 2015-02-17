@@ -8,37 +8,37 @@ namespace BusyShopCQRS.Web.Api
     public class BasketController : BaseApiController
     {
         [HttpPost]
-        public IHttpActionResult Create(CreateBasket input)
+        public IHttpActionResult Create(CreateBasket command)
         {
-            return ExecuteCommand(input);
+            return ExecuteCommand(command);
         }
 
         // [UriTemplate("/api/basket/{BasketId}/items")]
         [HttpPost]
-        public IHttpActionResult AddItemToBasket(AddItemToBasket input)
+        public IHttpActionResult AddItemToBasket(AddItemToBasket command)
         {
-            return ExecuteCommand(input);
+            return ExecuteCommand(command);
         }
 
         // [UriTemplate("/api/basket/{BasketId}/proceed")]
         [HttpPost]
-        public IHttpActionResult ProceedToCheckout(ProceedToCheckout input)
+        public IHttpActionResult ProceedToCheckout(ProceedToCheckout command)
         {
-            return ExecuteCommand(input);
+            return ExecuteCommand(command);
         }
 
         // [UriTemplate("/api/basket/{BasketId}/checkout")]
         [HttpPost]
-        public IHttpActionResult Checkout(CheckoutBasket input)
+        public IHttpActionResult Checkout(CheckoutBasket command)
         {
-            return ExecuteCommand(input);
+            return ExecuteCommand(command);
         }
 
         // [UriTemplate("/api/basket/{BasketId}/pay")]
         [HttpPost]
-        public IHttpActionResult Pay(MakePayment input)
+        public IHttpActionResult Pay(MakePayment command)
         {
-            return ExecuteCommand(input);
+            return ExecuteCommand(command);
         }        
     }
 }
