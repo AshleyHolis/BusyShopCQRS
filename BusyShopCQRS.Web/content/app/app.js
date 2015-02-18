@@ -91,10 +91,10 @@ shopApp.controller('OrderCtrl', ['$scope', '$http', 'debounce',
 
         var searchForRecommendations = function () {
             var productIds = $scope.order.Items.map(function(item) {
-                return item.ProductId;
+                return item.Product.id;
             });
             var query = { ProductIds: productIds };
-            $http.post(shopApp.baseUrl + "recommendation", query).then(function(response) {
+            $http.post(shopApp.baseUrl + "products/getRecommendations", query).then(function(response) {
                 $scope.recommendations = response.data;
             });
         };
