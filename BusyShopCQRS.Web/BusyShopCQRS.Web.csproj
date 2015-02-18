@@ -128,6 +128,7 @@
     <Compile Include="Api\ProductsController.cs" />
     <Compile Include="Api\OrdersController.cs" />
     <Compile Include="ApplicationConfiguration.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

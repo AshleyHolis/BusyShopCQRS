@@ -65,6 +65,10 @@
       <Project>{f6761b16-ec44-4ca5-ad1a-6df16cc8b928}</Project>
       <Name>BusyShopCQRS.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BusyShopCQRS.Helpers\BusyShopCQRS.Helpers.csproj">
+      <Project>{385445d9-7daf-4c43-9eb5-822eb0b94420}</Project>
+      <Name>BusyShopCQRS.Helpers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\BusyShopCQRS.Infrastructure\BusyShopCQRS.Infrastructure.csproj">
       <Project>{a86efec3-3ba9-4fb4-909b-bef44174a558}</Project>
       <Name>BusyShopCQRS.Infrastructure</Name>

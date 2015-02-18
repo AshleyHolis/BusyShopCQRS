@@ -41,7 +41,7 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
                 var customer = Customers[random.Next(Customers.Count)];
 
                 var createBasket = new CreateBasket(Guid.NewGuid(), customer.Id);
-                var response = client.PostAsJsonAsync(_baseAddress + "api/basket/create", createBasket).Result;
+                var response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/basket/create"), createBasket);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
                 var numberOfProductsToOrder = random.Next(1, maxNumberOfProductsToOrder);
@@ -51,22 +51,20 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
 
                     var addItemToBasket = new AddItemToBasket(createBasket.Id, product.Id, new Random().Next(10));
                     cost += product.Price*addItemToBasket.Quantity;
-                    response =
-                        client.PostAsJsonAsync(_baseAddress + "api/basket/AddItemToBasket", addItemToBasket).Result;
+                    response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/basket/AddItemToBasket"), addItemToBasket);
                     Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
                 }
 
                 var proceedToCheckout = new ProceedToCheckout(createBasket.Id);
-                response =
-                    client.PostAsJsonAsync(_baseAddress + "api/basket/ProceedToCheckout", proceedToCheckout).Result;
+                response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/basket/ProceedToCheckout"), proceedToCheckout);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
                 var checkoutBasket = new CheckoutBasket(createBasket.Id, new Address("MyStreet"));
-                response = client.PostAsJsonAsync(_baseAddress + "api/basket/Checkout", checkoutBasket).Result;
+                response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/basket/Checkout"), checkoutBasket);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
 
                 var makePayment = new MakePayment(createBasket.Id, cost);
-                response = client.PostAsJsonAsync(_baseAddress + "api/basket/pay", makePayment).Result;
+                response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/basket/pay"), makePayment);
                 Assert.AreEqual(HttpStatusCode.OK, response.StatusCode);
             }
         }

@@ -15,12 +15,11 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.ProductTests
         public void Create10Products()
         {
             var products = Products.Take(10).ToList();
-            var client = new HttpClient();
 
             foreach (var product in products)
             {
                 var createProduct = new CreateProduct(product.Id, product.Name, product.Price);
-                var response = client.PostAsJsonAsync(_baseAddress + "api/products/create", createProduct).Result;
+                var response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/products/create"), createProduct);
                 Debug.WriteLine(response);
                 Debug.WriteLine(response.Content.ReadAsStringAsync().Result);
             }

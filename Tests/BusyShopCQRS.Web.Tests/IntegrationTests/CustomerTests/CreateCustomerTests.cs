@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using BusyShopCQRS.Contracts.Commands;
@@ -14,12 +15,11 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.CustomerTests
         public void Create20Customers()
         {
             var customers = Customers.Take(20).ToList();
-            var client = new HttpClient();
 
             foreach (var customer in customers)
             {
                 var createCustomer = new CreateCustomer(customer.Id, customer.Name);
-                var response = client.PostAsJsonAsync(_baseAddress + "api/customers/create", createCustomer).Result;
+                var response = Json.UploadJsonObjectAsync(new Uri(_baseAddress + "api/customers/create"), createCustomer);
                 Debug.WriteLine(response);
                 Debug.WriteLine(response.Content.ReadAsStringAsync().Result);
             }

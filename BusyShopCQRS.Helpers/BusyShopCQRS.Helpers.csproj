@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="ElasticClientBuilder.cs" />
     <Compile Include="EventStoreConnectionWrapper.cs" />
+    <Compile Include="Json.cs" />
     <Compile Include="Neo4jClientBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />

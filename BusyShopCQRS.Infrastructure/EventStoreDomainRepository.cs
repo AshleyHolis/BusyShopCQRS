@@ -20,9 +20,7 @@ namespace BusyShopCQRS.Infrastructure
 
         private string AggregateToStreamName(Type type, Guid id)
         {
-            //return string.Format("{0}-{1}-{2}", Category, type.Name, id);
-            //return string.Format("{0}-{1}", Category, id);
-            return string.Format("{0}", Category);
+            return string.Format("{0}-{1}-{2}", Category, type.Name, id);            
         }
 
         public override IEnumerable<IEvent> Save<TAggregate>(TAggregate aggregate)

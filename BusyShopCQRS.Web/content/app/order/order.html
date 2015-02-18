@@ -3,7 +3,7 @@
     <div class="form-group">
         <label for="name">Select customer</label>
         <input type="text" class="form-control" id="name" placeholder="Search for customer" ng-model="order.Customer"
-               typeahead="customer as customer.Name for customer in getCustomers($viewValue)" typeahead-editable="false"
+               typeahead="customer as customer.name for customer in getCustomers($viewValue)" typeahead-editable="false"
                typeahead-on-select="customerSelected(order, $item)" />
         
         <!--typeahead-input-formatter="$model.Name"-->
@@ -13,7 +13,7 @@
         <div ng-repeat="item in order.Items" class="row">
             <div class="form-group col-lg-4 col-md-4">
                 <input type="text" class="form-control" ng-model="item.Product" placeholder="Search for product"
-                       typeahead="product as product.Name for product in getProducts($viewValue)" typeahead-editable="false"
+                       typeahead="product as product.name for product in getProducts($viewValue)" typeahead-editable="false"
                        typeahead-on-select="productSelected(item, $item)" />
             </div>
             <div class="form-group col-lg-4 col-md-4">
@@ -31,8 +31,15 @@
         <h3>Recommendations</h3>
         <ul>
             <li ng-repeat="rec in recommendations">{{rec.Product.Name}}</li>
-        </ul>        
+        </ul>
     </div>
+    <div ng-show="order.previousOrders.length">
+        <h3>Previous Orders</h3>
+        <ul>
+            <li ng-repeat="po in order.previousOrders">{{po.id}}</li>
+        </ul>
+    </div>
+
 </command-container>
         <!--<input type="text" class="form-control" id="name" placeholder="Search for customer" ng-model="order.Customer"
                typeahead="customer in getCustomers()" typeahead-input-formatter="$model.Name" typeahead-editable="false"
