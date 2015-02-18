@@ -28,16 +28,13 @@ namespace BusyShopCQRS.Web
         }
 
         private static void CreateTestOrder(string baseAddress)
-        {
-            // Create HttpCient and make a request to api/values 
-            HttpClient client = new HttpClient();
-
+        {       
             var createProduct = new CreateProduct(Guid.NewGuid(), "TestProduct" + new Random().Next(), new Random().Next(100));
             var response = UploadJsonObjectAsync(new Uri(baseAddress + "api/products/create"), createProduct);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
-            var createCustomer = new CreateCustomer(Guid.NewGuid(), "Test" + new Random().Next());
+            var createCustomer = new CreateCustomer(Guid.NewGuid(), "TestCustomer" + new Random().Next());
             response = UploadJsonObjectAsync(new Uri(baseAddress + "api/customers/create"), createCustomer);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
@@ -57,7 +54,7 @@ namespace BusyShopCQRS.Web
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
 
-            var checkoutBasket = new CheckoutBasket(createBasket.Id, new Address("MyStreet"));
+            var checkoutBasket = new CheckoutBasket(createBasket.Id, new Address("TestStreet"));
             response = UploadJsonObjectAsync(new Uri(baseAddress + "api/basket/checkout"), checkoutBasket);
             Console.WriteLine(response);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
