@@ -89,6 +89,18 @@ shopApp.controller('OrderCtrl', ['$scope', '$http', 'debounce',
             $scope.order.Items.push({});
         };
 
+        var guid = (function () {
+            function s4() {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                           .toString(16)
+                           .substring(1);
+            }
+            return function () {
+                return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+                       s4() + '-' + s4() + s4() + s4();
+            };
+        })();
+
         var searchForRecommendations = function () {
             var productIds = $scope.order.Items.map(function(item) {
                 return item.Product.id;
@@ -137,6 +149,20 @@ shopApp.controller('OrderCtrl', ['$scope', '$http', 'debounce',
                 $scope.order.Items.splice(index, 1);
             }
             searchForRecommendations();
+        };
+
+        $scope.createOrder = function () {
+            $scope.order.basketId = guid();
+            var createBasketCommand = { id: $scope.order.basketId, customerId: $scope.order.CustomerId };
+
+            $http.post(shopApp.baseUrl + "basket/create", createBasketCommand).then(function(response) {
+                for (var i = 0; i < $scope.order.Items.length; i++) {
+                    var item = $scope.order.Items[i];
+                    var addItemToBasketCommand = { id: createBasketCommand.id, productId: item.Product.id, Quantity: item.Quantity };
+
+                    $http.post(shopApp.baseUrl + "basket/addItemToBasket", addItemToBasketCommand).then(function (response) { });
+                }
+            });
         };
     }
 ]);

@@ -6,3 +6,4 @@ C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\EventStore.ClientAPI.
 C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\bin\Debug\Newtonsoft.Json.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Infrastructure\obj\Debug\BusyShopCQRS.Infrastructure.csprojResolveAssemblyReference.cache

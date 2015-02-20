@@ -29,7 +29,7 @@ namespace BusyShopCQRS.Infrastructure
             var expectedVersion = CalculateExpectedVersion(aggregate, events);
             var eventData = events.Select(CreateEventData);
             var streamName = AggregateToStreamName(aggregate.GetType(), aggregate.Id);
-            _connection.AppendToStreamAsync(streamName, expectedVersion, eventData).Wait();
+            _connection.AppendToStreamAsync(streamName, ExpectedVersion.Any, eventData).Wait();
             return events;
         }
 
