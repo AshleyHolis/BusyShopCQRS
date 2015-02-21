@@ -1,44 +1,47 @@
 ﻿<h2>Create order</h2>
 <!--<command-container submit-text="Create order" command-name="order" command="order">-->
-    <div class="form-group">
-        <label for="name">Select customer</label>
-        <input type="text" class="form-control" id="name" placeholder="Search for customer" ng-model="order.Customer"
-               typeahead="customer as customer.name for customer in getCustomers($viewValue)" typeahead-editable="false"
-               typeahead-on-select="customerSelected(order, $item)"/>
-    </div>
-    <div class="form-group order-items">
-        <h3 for="name">Add order items</h3>
-        <div ng-repeat="item in order.Items" class="row">
-            <div class="form-group col-lg-4 col-md-4">
-                <input type="text" class="form-control" ng-model="item.Product" placeholder="Search for product"
-                       typeahead="product as product.name for product in getProducts($viewValue)" typeahead-editable="false"
-                       typeahead-on-select="productSelected(item, $item)"/>
-            </div>
-            <div class="form-group col-lg-4 col-md-4">
-                <input type="number" class="form-control" ng-model="item.Quantity" placeholder="Enter quantity"/>
-            </div>
-            <div class="form-group col-lg-4 col-md-4">
-                <button type="button" class="btn btn-danger" ng-click="deleteItem(item)">
-                    <span class="glyphicon glyphicon-trash"></span> Delete item
-                </button>
-            </div>
+<div class="form-group">
+    <label for="name">Select customer</label>
+    <input type="text" class="form-control" id="name" placeholder="Search for customer" ng-model="order.Customer"
+            typeahead="customer as customer.name for customer in getCustomers($viewValue)" typeahead-editable="false"
+            typeahead-on-select="customerSelected(order, $item)"/>
+</div>
+<div class="form-group order-items">
+    <h3 for="name">Add order items</h3>
+    <div ng-repeat="item in order.Items" class="row">
+        <div class="form-group col-lg-4 col-md-4">
+            <input type="text" class="form-control" ng-model="item.Product" placeholder="Search for product"
+                    typeahead="product as product.name for product in getProducts($viewValue)" typeahead-editable="false"
+                    typeahead-on-select="productSelected(item, $item)"/>
         </div>
-        <input type="button" class="btn btn-default" ng-disabled="order.CustomerId == undefined" ng-click="addItem()" value="Add item to list"/>
+        <div class="form-group col-lg-4 col-md-4">
+            <input type="number" class="form-control" ng-model="item.Quantity" placeholder="Enter quantity"/>
+        </div>
+        <div class="form-group col-lg-4 col-md-4">
+            <button type="button" class="btn btn-danger" ng-click="deleteItem(item)">
+                <span class="glyphicon glyphicon-trash"></span> Delete item
+            </button>
+        </div>
     </div>
-    <div ng-show="recommendations.length">
-        <h3>Recommendations</h3>
-        <ul>
-            <li ng-repeat="rec in recommendations">{{rec.product.name}}</li>
-        </ul>
-    </div>
+    <input type="button" class="btn btn-default" ng-disabled="order.CustomerId == undefined" ng-click="addItem()" value="Add item to list"/>
+</div>
+<div ng-show="recommendations.length">
+    <h3>Recommendations</h3>
+    <ul>
+        <li ng-repeat="rec in recommendations">{{rec.product.name}}</li>
+    </ul>
+</div>
 
-    <div ng-show="order.previousOrders.length">
-        <h3>Previous Orders</h3>
-        <ul>
-            <li ng-repeat="po in order.previousOrders">{{po.id}}</li>
-        </ul>
-    </div>
+<div><input type="button" class="btn btn-success" ng-disabled="order.Items.length < 2 || order.basketId != undefined" ng-click="createOrder()" value="Create order" /></div>
+<div><input type="button" class="btn btn-success" ng-disabled="order.basketId == undefined || order.isCheckingOut == true" ng-click="proceedToCheckout()" value="Proceed to checkout" /></div>
+<div><input type="button" class="btn btn-success" ng-disabled="order.isCheckingOut == undefined || order.isCheckedOut == true" ng-click="checkoutOrder()" value="Checkout Order" /></div>
+<div><input type="button" class="btn btn-success" ng-disabled="order.isCheckedOut == undefined || order.isCheckedOut != true" ng-click="makePayment()" value="Make payment" /></div>
 
-<input type="button" class="btn btn-success" ng-disabled="order.Items.length < 2 || order.basketId != undefined" ng-click="createOrder()" value="Create order" />
+<div ng-show="order.previousOrders.length">
+    <h3>Previous Orders</h3>
+    <ul>
+        <li ng-repeat="po in order.previousOrders">{{po.id}}</li>
+    </ul>
+</div>
 
 <!--</command-container>-->

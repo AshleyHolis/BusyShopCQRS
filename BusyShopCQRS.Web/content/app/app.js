@@ -164,6 +164,26 @@ shopApp.controller('OrderCtrl', ['$scope', '$http', 'debounce',
                 }
             });
         };
+
+        $scope.proceedToCheckout = function() {
+            var proceedToCheckoutCommand = { id: $scope.order.basketId };
+
+            $http.post(shopApp.baseUrl + "basket/proceedToCheckout", proceedToCheckoutCommand).then(function (response) { $scope.order.isCheckingOut = true; });
+        }
+
+        $scope.checkoutOrder = function () {
+            var checkoutBasketCommand = { id: $scope.order.basketId, shippingAddress: { street: "TestStreet" } };
+
+            $http.post(shopApp.baseUrl + "basket/checkout", checkoutBasketCommand).then(function (response) { $scope.order.isCheckedOut = true; });
+        }
+
+        $scope.makePayment = function () {
+            //var paymentAmount = createProduct.Price * addItemToBasket.Quantity;
+            var paymentAmount = 0;
+            var makePaymentCommand = { id: $scope.order.basketId, payment: paymentAmount };
+
+            $http.post(shopApp.baseUrl + "basket/pay", makePaymentCommand).then(function (response) { $scope.order.isPaid = true; });
+        }
     }
 ]);
 
