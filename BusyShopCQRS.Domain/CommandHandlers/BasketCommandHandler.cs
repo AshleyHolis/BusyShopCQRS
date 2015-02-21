@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics;
 using BusyShopCQRS.Contracts.Commands;
 using BusyShopCQRS.Domain.Aggregates;
 using BusyShopCQRS.Domain.Exceptions;
@@ -22,15 +24,12 @@ namespace BusyShopCQRS.Domain.CommandHandlers
 
         public IAggregate Handle(CreateBasket command)
         {
-            try
+            var basket = _domainRepository.GetById<Basket>(command.Id);
+            if (basket.Id != Guid.Empty)
             {
-                var basket = _domainRepository.GetById<Basket>(command.Id);
                 throw new BasketAlreadExistsException(command.Id);
             }
-            catch (AggregateNotFoundException)
-            {
-                //Expect this
-            }
+
             var customer = _domainRepository.GetById<Customer>(command.CustomerId);
             return Basket.Create(command.Id, customer);
         }

@@ -20,21 +20,21 @@ namespace BusyShopCQRS.Web.Tests.IntegrationTests.BasketTests
 
             //for (int i = 0; i < numberOfBasketsToOrder; i++)
             //{
-            //    Debug.WriteLine("Order: {0}", i);
+            //    //Debug.WriteLine("Order: {0}", i);
             //    CreateRandomBasket(maxNumberOfProductsToOrder);
             //}
 
-            Parallel.For(0, numberOfBasketsToOrder, new ParallelOptions {MaxDegreeOfParallelism = 20}, i =>
+            Parallel.For(0, numberOfBasketsToOrder, new ParallelOptions { MaxDegreeOfParallelism = 20 }, i =>
+              {
+                //Debug.WriteLine("Order: {0}", i);
+                CreateRandomBasket(maxNumberOfProductsToOrder);
+              });
+
+            Parallel.For(0, numberOfBasketsToOrder, i =>
             {
-                Debug.WriteLine("Order: {0}", i);
+                //Debug.WriteLine("Order: {0}", i);
                 CreateRandomBasket(maxNumberOfProductsToOrder);
             });
-
-            //Parallel.For(0, numberOfBasketsToOrder, i =>
-            //{
-            //    Debug.WriteLine("Order: {0}", i);
-            //    CreateRandomBasket(maxNumberOfProductsToOrder);
-            //});
         }
 
         private void CreateRandomBasket(int maxNumberOfProductsToOrder)

@@ -10,7 +10,7 @@ namespace BusyShopCQRS.Infrastructure
 {
     public class EventStoreDomainRepository : DomainRepositoryBase
     {
-        private IEventStoreConnection _connection;
+        private readonly IEventStoreConnection _connection;
         private const string Category = "BusyShopCQRS";
 
         public EventStoreDomainRepository(IEventStoreConnection connection)
@@ -39,7 +39,8 @@ namespace BusyShopCQRS.Infrastructure
             var eventsSlice = _connection.ReadStreamEventsForwardAsync(streamName, 0, int.MaxValue, false).Result;
             if (eventsSlice.Status == SliceReadStatus.StreamNotFound)
             {
-                throw new AggregateNotFoundException("Could not found aggregate of type " + typeof(TResult) + " and id " + id);
+                //throw new AggregateNotFoundException("Could not found aggregate of type " + typeof(TResult) + " and id " + id);                
+                return new TResult();
             }
             var deserializedEvents = eventsSlice.Events.Select(e =>
             {
@@ -67,9 +68,6 @@ namespace BusyShopCQRS.Infrastructure
             {
                 {
                     EventClrTypeHeader, @event.GetType().AssemblyQualifiedName
-                },
-                {
-                    "Domain", "Enheter"
                 }
             };
             var eventDataHeaders = SerializeObject(eventHeaders);

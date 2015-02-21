@@ -22,7 +22,7 @@ namespace BusyShopCQRS.Web.Api
         [HttpGet]
         public IHttpActionResult Get(string query = null)
         {
-            var searchResult = EsClient.Search<Product>(sd => sd.Query(qd => qd.Prefix(mqd => mqd.OnField(p => p.Name).Value(query))).Size(int.MaxValue));
+            var searchResult = ElasticClientBuilder.EsClient.Search<Product>(sd => sd.Query(qd => qd.Prefix(mqd => mqd.OnField(p => p.Name).Value(query))).Size(int.MaxValue));
 
             return Ok(searchResult.Documents);
         }

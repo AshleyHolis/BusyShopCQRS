@@ -9,7 +9,8 @@ namespace BusyShopCQRS.Web.Tests
 {
     public class TestBase
     {
-        protected readonly string _baseAddress = string.Format("http://{0}:9000/", Environment.MachineName);
+        //protected readonly string _baseAddress = string.Format("http://{0}:9000/", Environment.MachineName);
+        protected readonly string _baseAddress = string.Format("http://{0}:9000/", "localhost");
 
         public List<CreateProduct> Products = new List<CreateProduct>
         {

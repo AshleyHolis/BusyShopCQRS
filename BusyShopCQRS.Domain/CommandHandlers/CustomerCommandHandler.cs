@@ -20,15 +20,12 @@ namespace BusyShopCQRS.Domain.CommandHandlers
 
         public IAggregate Handle(CreateCustomer command)
         {
-            try
+            var customer = _domainRepository.GetById<Customer>(command.Id);
+            if (customer.Id != Guid.Empty)
             {
-                var customer = _domainRepository.GetById<Customer>(command.Id);
                 throw new CustomerAlreadyExistsException(command.Id);
             }
-            catch (AggregateNotFoundException)
-            {
-                // We expect not to find anything
-            }
+
             return Customer.Create(command.Id, command.Name);
         }
 

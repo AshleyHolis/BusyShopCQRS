@@ -5,23 +5,12 @@ namespace BusyShopCQRS.Infrastructure
 {
     public class AggregateBase : IAggregate
     {
-        public int Version
-        {
-            get
-            {
-                return _version;
-            }
-            protected set
-            {
-                _version = value;
-            }
-        }
+        public int Version { get; protected set; } = -1;
 
         public Guid Id { get; protected set; }
 
         private List<IEvent> _uncommitedEvents = new List<IEvent>();
         private Dictionary<Type, Action<IEvent>> _routes = new Dictionary<Type, Action<IEvent>>();
-        private int _version = -1;
 
         public void RaiseEvent(IEvent @event)
         {

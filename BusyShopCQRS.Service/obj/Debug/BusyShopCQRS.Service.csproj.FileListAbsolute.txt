@@ -1,17 +1,15 @@
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.exe.config
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.exe
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Contracts.dll
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Helpers.dll
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Infrastructure.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Elasticsearch.Net.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\EventStore.ClientAPI.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Neo4jClient.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Nest.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Newtonsoft.Json.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Topshelf.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.exe.config
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Helpers.dll
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Infrastructure.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\System.Net.Http.Extensions.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\System.Net.Http.Primitives.dll
-C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\Topshelf.dll
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Contracts.pdb
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Contracts.xml
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Helpers.pdb
@@ -30,3 +28,5 @@ C:\Work\BusyShopCQRS\BusyShopCQRS.Service\obj\Debug\BusyShopCQRS.Service.csproj.
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\obj\Debug\BusyShopCQRS.Service.csprojResolveAssemblyReference.cache
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\obj\Debug\BusyShopCQRS.Service.exe
 C:\Work\BusyShopCQRS\BusyShopCQRS.Service\obj\Debug\BusyShopCQRS.Service.pdb
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.exe
+C:\Work\BusyShopCQRS\BusyShopCQRS.Service\bin\Debug\BusyShopCQRS.Service.pdb

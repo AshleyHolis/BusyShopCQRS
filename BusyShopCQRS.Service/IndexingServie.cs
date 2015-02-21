@@ -19,10 +19,18 @@ namespace BusyShopCQRS.Service
 
         public void Start()
         {
-            _graphClient = CreateGraphClient();
-            _indexer = CreateIndexer();
-            _eventHandlerMapping = CreateEventHandlerMapping();
-            ConnectToEventstore();
+            try
+            {
+                _graphClient = CreateGraphClient();
+                _indexer = CreateIndexer();
+                _eventHandlerMapping = CreateEventHandlerMapping();
+                ConnectToEventstore();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         private GraphClient CreateGraphClient()

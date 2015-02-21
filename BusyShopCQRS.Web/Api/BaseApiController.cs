@@ -10,19 +10,15 @@ namespace BusyShopCQRS.Web.Api
 {
     public abstract class BaseApiController : ApiController
     {
-        private IElasticClient _esClient;
-        private GraphClient _neo4jClient;
-        private DomainEntry _domainEntry;
-
-        protected IElasticClient EsClient => _esClient ?? (_esClient = ElasticClientBuilder.BuildClient());
+        private GraphClient _neo4jClient;        
+        
         protected GraphClient Neo4jClient => _neo4jClient ?? (_neo4jClient = _neo4jClient = Neo4jClientBuilder.Build());
-        private DomainEntry DomainEntry => _domainEntry = _domainEntry ?? ApplicationConfiguration.CreateDomainEntry();
 
         public IHttpActionResult ExecuteCommand<TCommand>(TCommand input) where TCommand : ICommand
         {
             try
             {
-                DomainEntry.ExecuteCommand(input);
+                ApplicationConfiguration.DomainEntry.ExecuteCommand(input);
             }
             catch (Exception ex)
             {
